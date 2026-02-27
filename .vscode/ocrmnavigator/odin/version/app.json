@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "SubStop: Subscription Tracker",
+    "name": "SubStop",
     "slug": "substop",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
@@ -14,9 +14,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.sidewayz8.substop",
-      "infoPlist": {
-        "UIBackgroundModes": ["fetch"]
-      }
+      "buildNumber": "2"
     },
     "android": {
       "adaptiveIcon": {
@@ -25,12 +23,15 @@
       },
       "package": "com.sidewayz8.substop"
     },
+    "web": {
+      "favicon": "./assets/icon.png"
+    },
     "plugins": [
       [
         "expo-notifications",
         {
           "icon": "./assets/icon.png",
-          "color": "#ffffff"
+          "color": "#121212"
         }
       ]
     ]
