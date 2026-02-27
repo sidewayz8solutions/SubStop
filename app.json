@@ -1,0 +1,44 @@
+{
+  "expo": {
+    "name": "SubStop",
+    "slug": "substop",
+    "version": "1.0.1",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#121212"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.sidewayz8.substop",
+      "buildNumber": "2"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#121212"
+      },
+      "package": "com.sidewayz8.substop"
+    },
+    "web": {
+      "favicon": "./assets/icon.png"
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/icon.png",
+          "color": "#121212"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "54a59ceb-bca6-450b-a46b-5a84be4f7539"
+      }
+    }
+  }
+}
