@@ -14,7 +14,10 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.sidewayz8.substop",
-      "buildNumber": "2"
+      "buildNumber": "2",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -34,6 +37,12 @@
           "color": "#121212"
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "1ebcc205-cf3d-4db8-a2d7-e10bd6be3152"
+      }
+    },
+    "owner": "buttond"
   }
 }
