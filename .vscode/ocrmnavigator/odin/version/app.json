@@ -2,7 +2,7 @@
   "expo": {
     "name": "SubStop",
     "slug": "substop",
-    "version": "1.0.4",
+    "version": "1.0.6",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
@@ -14,7 +14,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.sidewayz8.substop",
-      "buildNumber": "5",
+      "buildNumber": "8",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
@@ -29,16 +29,7 @@
     "web": {
       "favicon": "./assets/icon.png"
     },
-    "plugins": [
-      [
-        "expo-notifications",
-        {
-          "icon": "./assets/icon.png",
-          "color": "#121212"
-        }
-      ]
-    ],
-    "owner": "buttond",
+      "owner": "buttond",
     "extra": {
       "eas": {
         "projectId": "2fdc3488-e299-48f6-a5c8-0f6301f5da26"

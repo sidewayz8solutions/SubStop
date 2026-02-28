@@ -4,19 +4,29 @@ import { globalStyles } from './src/styles/theme';
 import AddSubForm from './src/components/AddSubForm';
 import SubItem from './src/components/SubItem';
 import { loadSubscriptions, saveSubscriptions } from './src/utils/storage';
-import { requestPermissions, scheduleRenewalReminder } from './src/utils/notifications';
+import { Alert } from 'react-native';
+
+/// ADVANCED CRASH INTERCEPTOR
+if (!__DEV__) {
+    let errorLog = [];
+    global.ErrorUtils.setGlobalHandler((error, isFatal) => {
+        errorLog.push(error.message);
+        Alert.alert(
+            "Crash Intercepted!",
+            `Error Log:\n\n${errorLog.join('\n\n---\n\n')}`
+        );
+    });
+}
 
 export default function App() {
     const [subs, setSubs] = useState([]);
 
-    useEffect(() => {
-        // On boot: load data and request notification permissions
-        (async () => {
+    useEffect(async () => {
             const savedSubs = await loadSubscriptions();
             setSubs(savedSubs);
             await requestPermissions();
         })();
-    }, []);
+    } [];
 
     const handleAddSub = async (newSub) => {
         const updatedSubs = [newSub, ...subs];
@@ -24,7 +34,7 @@ export default function App() {
         await saveSubscriptions(updatedSubs);
 
         // MVP logic: Alert them 28 days from now assuming a monthly sub added today
-        await scheduleRenewalReminder(newSub.name, 28);
+        
     };
 
     const handleDeleteSub = async (id) => {
@@ -49,4 +59,3 @@ export default function App() {
             />
         </View>
     );
-}
