@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, FlatList, StatusBar, Alert } from 'react-native';
+import * as SplashScreen from 'expo-splash-screen';
 import { globalStyles } from './src/styles/theme';
 import AddSubForm from './src/components/AddSubForm';
 import SubItem from './src/components/SubItem';
+import AnimatedSplash from './src/components/AnimatedSplash';
 import { loadSubscriptions, saveSubscriptions } from './src/utils/storage';
+
+// Keep the native splash visible while we load, then we hand off to our video splash
+SplashScreen.preventAutoHideAsync().catch(() => {});
 
 // ADVANCED CRASH INTERCEPTOR (Placed globally so it catches everything)
 if (!__DEV__) {
@@ -19,13 +24,22 @@ if (!__DEV__) {
 
 export default function App() {
     const [subs, setSubs] = useState([]);
+    const [showSplash, setShowSplash] = useState(true);
 
     useEffect(() => {
+        // Hide the native static splash as soon as React is ready —
+        // our custom video splash takes over from here.
+        SplashScreen.hideAsync().catch(() => {});
+
         // On boot: load data from the local database
         (async () => {
             const savedSubs = await loadSubscriptions();
             setSubs(savedSubs);
         })();
+    }, []);
+
+    const handleSplashFinish = useCallback(() => {
+        setShowSplash(false);
     }, []);
 
     const handleAddSub = async (newSub) => {
@@ -39,6 +53,15 @@ export default function App() {
         setSubs(updatedSubs);
         await saveSubscriptions(updatedSubs);
     };
+
+    if (showSplash) {
+        return (
+            <>
+                <StatusBar hidden />
+                <AnimatedSplash onFinish={handleSplashFinish} />
+            </>
+        );
+    }
 
     return (
         <View style={globalStyles.container}>
