@@ -1,7 +1,7 @@
 {
   "name": "substop",
-  "version": "1.0.7",
-  "main": "App.js",
+  "version": "1.0.8",
+  "main": "expo/AppEntry.js",
   "private": true,
   "scripts": {
     "start": "expo start",
