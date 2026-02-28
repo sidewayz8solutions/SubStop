@@ -38,11 +38,11 @@
         }
       ]
     ],
+    "owner": "buttond",
     "extra": {
       "eas": {
-        "projectId": "1ebcc205-cf3d-4db8-a2d7-e10bd6be3152"
+        "projectId": "2fdc3488-e299-48f6-a5c8-0f6301f5da26"
       }
-    },
-    "owner": "buttond"
+    }
   }
 }
