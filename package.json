@@ -1,7 +1,7 @@
 {
   "name": "substop",
   "version": "1.0.1",
-  "main": "index.js",
+  "main": "App.js",
   "private": true,
   "scripts": {
     "start": "expo start",

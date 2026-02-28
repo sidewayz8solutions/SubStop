@@ -1,7 +1,7 @@
 {
   "name": "substop",
   "version": "1.0.1",
-  "main": "index.js",
+  "main": "App.js",
   "private": true,
   "scripts": {
     "start": "expo start",
@@ -10,7 +10,9 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "2.2.0",
     "expo": "~55.0.4",
+    "expo-notifications": "~55.0.10",
     "expo-status-bar": "~55.0.4",
     "react": "19.2.0",
     "react-native": "0.83.2"
