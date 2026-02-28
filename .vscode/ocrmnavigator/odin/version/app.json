@@ -38,6 +38,11 @@
         }
       ]
     ],
-    "owner": "buttond"
+    "owner": "buttond",
+    "extra": {
+      "eas": {
+        "projectId": "2fdc3488-e299-48f6-a5c8-0f6301f5da26"
+      }
+    }
   }
 }
