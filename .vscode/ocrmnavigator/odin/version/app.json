@@ -2,7 +2,7 @@
   "expo": {
     "name": "SubStop",
     "slug": "substop",
-    "version": "1.2.3",
+    "version": "1.2.5",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
@@ -14,9 +14,11 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.sidewayz8.substop",
-      "buildNumber": "17",
+      "buildNumber": "19",
       "infoPlist": {
+        "NSUserNotificationUsageDescription": "SubStop uses local notifications to alert you 5 days and 24 hours before your subscriptions renew so you can cancel them in time.",
         "ITSAppUsesNonExemptEncryption": false
+
       }
     },
     "android": {

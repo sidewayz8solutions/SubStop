@@ -1,3 +1,4 @@
+import { requestLocalPermissions, scheduleSubReminders } from './src/utils/notifications';
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, FlatList, StatusBar, Alert } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
@@ -27,6 +28,9 @@ export default function App() {
     const [showSplash, setShowSplash] = useState(true);
 
     useEffect(() => {
+        // Request notification permissions on app start
+        requestLocalPermissions();
+
         // Hide the native static splash as soon as React is ready —
         // our custom video splash takes over from here.
         SplashScreen.hideAsync().catch(() => {});
@@ -46,6 +50,7 @@ export default function App() {
         const updatedSubs = [newSub, ...subs];
         setSubs(updatedSubs);
         await saveSubscriptions(updatedSubs);
+        await scheduleSubReminders(newSub.name, newSub.nextBillingDate);
     };
 
     const handleDeleteSub = async (id) => {
