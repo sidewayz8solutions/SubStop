@@ -1,42 +1,29 @@
-import React, { useRef, useCallback } from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
-import { Video, ResizeMode } from 'expo-av';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+// 1. Import the new video tools from expo-video
+import { useVideoPlayer, VideoView } from 'expo-video';
 
-const { width, height } = Dimensions.get('window');
+export default function AnimatedSplash() {
+    // 2. Load the video and tell it to auto-play using the new hook
+    const player = useVideoPlayer(require('../../assets/splash.mp4'), player => {
+        player.play();
+    });
 
-export default function AnimatedSplash({ onFinish }) {
-  const videoRef = useRef(null);
-
-  const handlePlaybackStatusUpdate = useCallback((status) => {
-    if (status.didJustFinish) {
-      onFinish();
-    }
-  }, [onFinish]);
-
-  return (
-    <View style={styles.container}>
-      <Video
-        ref={videoRef}
-        source={require('../../assets/splash.mp4')}
-        style={styles.video}
-        resizeMode={ResizeMode.COVER}
-        shouldPlay
-        isLooping={false}
-        onPlaybackStatusUpdate={handlePlaybackStatusUpdate}
-      />
-    </View>
-  );
+    return (
+        <View style={StyleSheet.absoluteFill}>
+            {/* 3. Render the new VideoView component */}
+            <VideoView
+                player={player}
+                style={styles.video}
+                contentFit="cover"
+            />
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#121212',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  video: {
-    width,
-    height,
-  },
+    video: {
+        width: '100%',
+        height: '100%',
+    }
 });
