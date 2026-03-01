@@ -17,7 +17,7 @@ export default function AnimatedSplash({ onFinish }) {
     <View style={styles.container}>
       <Video
         ref={videoRef}
-        source={require('../../assets/splash.MP4')}
+        source={require('../../assets/splash.mp4')}
         style={styles.video}
         resizeMode={ResizeMode.COVER}
         shouldPlay
