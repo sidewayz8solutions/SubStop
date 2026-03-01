@@ -82,8 +82,6 @@ export default function AddSubForm({ onAdd }) {
         🔔 SubStop will silently alert you 5 days and 24 hrs before this date.
       </Text>
 
-      <TouchableOpacity style={styles.addButton} onPress={handleSubmit}></TouchableOpacity>
-
       <TouchableOpacity style={styles.addButton} onPress={handleSubmit}>
         <Text style={styles.addButtonText}>Add Subscription</Text>
       </TouchableOpacity>
